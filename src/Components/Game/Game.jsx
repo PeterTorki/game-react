@@ -1,6 +1,6 @@
 import React, { useEffect, useContext }from 'react'
 import GameContext from '../../Store/game-context'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import {getHouseChoice} from './gameLogic'
 import GameIcon from './GameIcon'
 import { spring, animate } from "motion"
@@ -22,6 +22,12 @@ export default function Game() {
 
 
     useEffect(() => {
+        //detect when user click back button
+        window.addEventListener('popstate', () => {
+            gameCtx.setMyChoice(null);
+            gameCtx.setHouseChoice(null);
+        })
+
         animate(
             ".game__board",
             { scale: [1.2,1], opacity: 1 },

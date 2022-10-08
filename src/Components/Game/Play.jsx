@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import GameIcon from './GameIcon'
 import GameContext from '../../Store/game-context'
 import { getScore, getResult } from './gameLogic'
-import { animate, spring, stagger } from "motion"
+import { animate, spring } from "motion"
 
 export default function Play() {
     const gameCtx = useContext(GameContext);
@@ -19,6 +19,12 @@ export default function Play() {
     useEffect(() => {
         //hide result div on load
         document.querySelector('.play__board__result').style.display = 'none';
+
+        //detect when user click back button
+        window.addEventListener('popstate', () => {
+            gameCtx.setMyChoice(null);
+            gameCtx.setHouseChoice(null);
+        })
 
         if (result === 'error') {
             navigate('/')
