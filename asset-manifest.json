@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/game-react/static/css/main.b18e5bdb.css",
+    "main.js": "/game-react/static/js/main.94ab7003.js",
+    "static/js/787.6a541d2d.chunk.js": "/game-react/static/js/787.6a541d2d.chunk.js",
+    "static/media/logo-bonus.svg": "/game-react/static/media/logo-bonus.9bf8aeb80c2526dee7c67aa5c1b74ccc.svg",
+    "static/media/image-rules-bonus.svg": "/game-react/static/media/image-rules-bonus.513320fbf32ba9e4a81fba903a77b85f.svg",
+    "static/media/icon-lizard.svg": "/game-react/static/media/icon-lizard.0f83914cca1adc9454d1.svg",
+    "static/media/icon-paper.svg": "/game-react/static/media/icon-paper.8b57a6b108c1b8ae8293.svg",
+    "static/media/icon-spock.svg": "/game-react/static/media/icon-spock.f4d7eee84cf50913d739.svg",
+    "static/media/icon-scissors.svg": "/game-react/static/media/icon-scissors.3b1a5d7eb0b2f1fd3e95.svg",
+    "index.html": "/game-react/index.html",
+    "static/media/icon-rock.svg": "/game-react/static/media/icon-rock.476e90a9646a87bb3645.svg",
+    "static/media/bg-pentagon.svg": "/game-react/static/media/bg-pentagon.1ad6d36532b75eb7d82c.svg",
+    "main.b18e5bdb.css.map": "/game-react/static/css/main.b18e5bdb.css.map",
+    "main.94ab7003.js.map": "/game-react/static/js/main.94ab7003.js.map",
+    "787.6a541d2d.chunk.js.map": "/game-react/static/js/787.6a541d2d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b18e5bdb.css",
+    "static/js/main.94ab7003.js"
+  ]
+}
