@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import './assets/Sass/main.scss';
 
 import GameProvider from './Store/GameProvider';
