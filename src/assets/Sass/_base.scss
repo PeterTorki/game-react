@@ -1,0 +1,77 @@
+//Base: contained within this file are all your resets, variables, mixins, and any utility classes.
+
+//Variables
+$scissors-gradient: linear-gradient(hsl(39, 89%, 49%) 0%, hsl(40, 84%, 53%) 100%);
+$paper-gradient: linear-gradient(hsl(230, 89%, 62%) 0%, hsl(230, 89%, 65%) 100%);
+$rock-gradient: linear-gradient(hsl(349, 71%, 52%) 0%, hsl(349, 70%, 56%) 100%);
+$lizard-gradient: linear-gradient(hsl(261, 73%, 60%) 0%, hsl(261, 72%, 63%) 100%);
+$spock-gradient: linear-gradient(hsl(189, 59%, 53%) 0%, hsl(189, 58%, 57%) 100%);
+
+$dark-text : hsl(229, 25%, 31%);
+$score-text : hsl(229, 64%, 46%);
+$header-outline : hsl(217, 16%, 45%);
+
+$bg-color-gradient: radial-gradient(circle at top center, hsl(214, 47%, 23%), rgb(20, 21, 57));
+
+$font-family: 'Barlow Semi Condensed', sans-serif;
+
+@mixin desktop {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+//Resets
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: $font-family;
+}
+
+body {
+    font-size: 1.6rem;
+    background-image: $bg-color-gradient;
+    height: 100vh;
+}
+
+//Mixins
+@mixin icon($image, $color, $size: 10rem) {
+    border-radius: 50%;
+    width: $size;
+    height: $size;
+    background-image: $color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.1s ease-in-out;
+    //box shadow
+    box-shadow: inset 0px -5px 0px rgb(0, 0, 0, 0.2);
+
+    .player {
+        //display above the icon
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+        background-image: url($image);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+        background-color: #e5e7e5;
+    }
+
+    @include desktop {
+        width: calc(#{$size} + 2rem);
+        height: calc(#{$size} + 2rem);
+
+        // .player {
+        //     width: 95px;
+        //     height: 95px;
+        // }
+    }
+}

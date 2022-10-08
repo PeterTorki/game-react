@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+  background-image: radial-gradient(circle at top center, hsl(214deg, 47%, 23%), rgb(20, 21, 57));
+  height: 100vh;
+}
+
+.App {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.box {
+  border: 3px solid hsl(217deg, 16%, 45%);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo img {
+  width: 100px;
+}
+@media (min-width: 1024px) {
+  .header__logo img {
+    width: 125px;
+  }
+}
+
+.score {
+  background-color: #e5e7ea;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  border-radius: 1.5rem;
+}
+.score__title {
+  font-size: 1.5rem;
+  color: hsl(229deg, 64%, 46%);
+  text-transform: uppercase;
+}
+.score__value {
+  font-size: 4rem;
+  font-weight: 700;
+  color: hsl(229deg, 25%, 31%);
+}
+@media (min-width: 1024px) {
+  .score {
+    padding: 1.5rem 6rem;
+  }
+  .score__title {
+    font-size: 2rem;
+  }
+  .score__value {
+    font-size: 6rem;
+  }
+}
+
+.game__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.game__rules {
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 1024px) {
+  .game__rules {
+    justify-content: flex-end;
+  }
+}
+.game__rules .rules__btn {
+  background-color: transparent;
+  color: #e5e7ea;
+  font-size: 2rem;
+  width: 150px;
+  transition: all 0.2s ease-in-out;
+}
+.game__rules .rules__btn:hover {
+  color: #fff;
+  transform: translate(0, -3px);
+}
+.game__rules .rules__btn:active {
+  transform: translate(0, 2px);
+}
+.game__board {
+  display: flex;
+  margin: 5rem;
+  background-image: url(../images/bg-pentagon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  height: 300px;
+  width: 300px;
+  position: relative;
+}
+.game__board .icon--scissors {
+  position: absolute;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-image: linear-gradient(hsl(39deg, 89%, 49%) 0%, hsl(40deg, 84%, 53%) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s ease-in-out;
+  box-shadow: inset 0px -5px 0px rgba(0, 0, 0, 0.2);
+  top: -20px;
+  left: 90px;
+}
+.game__board .icon--scissors .player {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-image: url("../images/icon-scissors.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  background-color: #e5e7e5;
+}
+.game__board .icon--scissors:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+@media (min-width: 1024px) {
+  .game__board .icon--scissors {
+    width: 120px;
+    height: 120px;
+  }
+  .game__board .icon--scissors .player {
+    width: 95px;
+    height: 95px;
+  }
+}
+.game__board .icon--paper {
+  position: absolute;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-image: linear-gradient(hsl(230deg, 89%, 62%) 0%, hsl(230deg, 89%, 65%) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s ease-in-out;
+  box-shadow: inset 0px -5px 0px rgba(0, 0, 0, 0.2);
+  right: -20px;
+  top: 80px;
+}
+.game__board .icon--paper .player {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-image: url("../images/icon-paper.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  background-color: #e5e7e5;
+}
+.game__board .icon--paper:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+@media (min-width: 1024px) {
+  .game__board .icon--paper {
+    width: 120px;
+    height: 120px;
+  }
+  .game__board .icon--paper .player {
+    width: 95px;
+    height: 95px;
+  }
+}
+.game__board .icon--rock {
+  position: absolute;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-image: linear-gradient(hsl(349deg, 71%, 52%) 0%, hsl(349deg, 70%, 56%) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s ease-in-out;
+  box-shadow: inset 0px -5px 0px rgba(0, 0, 0, 0.2);
+  bottom: -20px;
+  right: 10px;
+}
+.game__board .icon--rock .player {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-image: url("../images/icon-rock.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  background-color: #e5e7e5;
+}
+.game__board .icon--rock:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+@media (min-width: 1024px) {
+  .game__board .icon--rock {
+    width: 120px;
+    height: 120px;
+  }
+  .game__board .icon--rock .player {
+    width: 95px;
+    height: 95px;
+  }
+}
+.game__board .icon--lizard {
+  position: absolute;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-image: linear-gradient(hsl(261deg, 73%, 60%) 0%, hsl(261deg, 72%, 63%) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s ease-in-out;
+  box-shadow: inset 0px -5px 0px rgba(0, 0, 0, 0.2);
+  bottom: -20px;
+  left: 10px;
+}
+.game__board .icon--lizard .player {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-image: url("../images/icon-lizard.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  background-color: #e5e7e5;
+}
+.game__board .icon--lizard:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+@media (min-width: 1024px) {
+  .game__board .icon--lizard {
+    width: 120px;
+    height: 120px;
+  }
+  .game__board .icon--lizard .player {
+    width: 95px;
+    height: 95px;
+  }
+}
+.game__board .icon--spock {
+  position: absolute;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-image: linear-gradient(hsl(189deg, 59%, 53%) 0%, hsl(189deg, 58%, 57%) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s ease-in-out;
+  box-shadow: inset 0px -5px 0px rgba(0, 0, 0, 0.2);
+  top: 80px;
+  left: -20px;
+}
+.game__board .icon--spock .player {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-image: url("../images/icon-spock.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  background-color: #e5e7e5;
+}
+.game__board .icon--spock:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+@media (min-width: 1024px) {
+  .game__board .icon--spock {
+    width: 120px;
+    height: 120px;
+  }
+  .game__board .icon--spock .player {
+    width: 95px;
+    height: 95px;
+  }
+}
+@media (min-width: 1024px) {
+  .game__board {
+    height: 350px;
+    width: 350px;
+  }
+  .game__board .icon--scissors {
+    top: -20px;
+    left: 110px;
+  }
+  .game__board .icon--paper {
+    right: -30px;
+    top: 85px;
+  }
+  .game__board .icon--rock {
+    bottom: -30px;
+    right: 30px;
+  }
+  .game__board .icon--lizard {
+    bottom: -30px;
+    left: 30px;
+  }
+  .game__board .icon--spock {
+    top: 85px;
+    left: -30px;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.rules__container {
+  position: fixed;
+  background-color: #e5e7ea;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+.rules__container .title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 1rem 0;
+  color: hsl(229deg, 25%, 31%);
+  text-transform: uppercase;
+}
+.rules__container .rules {
+  padding: 0 1rem;
+}
+.rules__container .rules img {
+  width: 100%;
+}
+.rules__container .close-btn {
+  background-color: transparent;
+  color: #b2b5c6;
+  border: none;
+  font-size: 3rem;
+  width: 150px;
+  transition: all 0.2s ease-in-out;
+}
+.rules__container .close-btn:hover {
+  color: hsl(217deg, 16%, 45%);
+}
+@media (min-width: 1024px) {
+  .rules__container {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    overflow: auto;
+    height: auto;
+    max-height: 700px;
+    width: 50%;
+    padding: 2rem 3rem;
+  }
+  .rules__container .title {
+    align-self: flex-start;
+  }
+  .rules__container .close-btn {
+    width: auto;
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+  }
+}
