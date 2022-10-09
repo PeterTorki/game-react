@@ -382,5 +382,33 @@
             right: 3rem;
         }
     }
+}
 
+.winner{
+    //add multiple animated circles
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -99;
+        border-radius: 50%;
+        background-color: #e5e7ea9a;
+        animation: winner 2s ease-out infinite;
+        animation-delay: 1.5s;
+    }
+
+    @keyframes winner{
+        0%{
+            transform: scale(0);
+            opacity: 1;
+        }
+        100%{
+            transform: scale(1.5);
+            opacity: 0;
+        }
+    }
 }

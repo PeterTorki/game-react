@@ -51,10 +51,10 @@ export default function Play() {
                 { display: ['flex'] },
                 { duration: 0.2, easing: [0.17, 0.67, 0.83, 0.67] }
             )
+
         }, 2000);
 
     }, [])
-
 
     return (
         <div className="play__container">
@@ -63,7 +63,7 @@ export default function Play() {
                     <div className="play__board__player__title">
                         You Picked
                     </div>
-                    <div className="play__board__player__icon">
+                    <div className={`play__board__player__icon ${result === 'win' ? 'winner': ''}`}>
                         <GameIcon iconName={myChoice} />
                     </div>
                 </div>
@@ -85,7 +85,7 @@ export default function Play() {
                     <div className="play__board__house__title">
                         The House Picked
                     </div>
-                    <div className="play__board__house__icon">
+                    <div className={`play__board__house__icon ${result === 'lose' ? 'winner': ''}`}>
                         <GameIcon iconName={houseChoice} />
                     </div>
                 </div>
